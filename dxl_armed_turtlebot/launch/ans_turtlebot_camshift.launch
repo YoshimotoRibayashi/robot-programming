@@ -1,0 +1,9 @@
+<launch>
+  <include file="$(find dxl_armed_turtlebot)/launch/dxl_armed_turtlebot_gazebo.launch" />
+  <include file="$(find opencv_apps)/launch/camshift.launch" >
+    <arg name="image" value="/camera/rgb/image_raw" />
+  </include>
+  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py"
+	name="teleop_twist_keyboard"
+	launch-prefix="xterm -e" />
+</launch>
